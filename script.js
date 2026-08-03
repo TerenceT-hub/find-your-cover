@@ -1,4 +1,4 @@
-  /* =====================================================================
+/* =====================================================================
    CONFIG — edit these three values for your own setup
 ===================================================================== */
 const CONFIG = {
@@ -136,7 +136,8 @@ function renderStep() {
     stepName === "done" ? "Complete" : `Step ${currentIndex + 1} of ${totalMinusDone}`;
 
   // nav buttons
-  prevBtn.style.visibility = currentIndex === 0 ? "hidden" : "visible";
+  prevBtn.style.visibility = "visible";
+  prevBtn.textContent = currentIndex === 0 ? "← Back to Home" : "← Back";
 
   if (stepName === "review") {
     nextBtn.textContent = "Send to WhatsApp";
@@ -150,12 +151,20 @@ function renderStep() {
 }
 
 prevBtn.addEventListener("click", () => {
-  if (currentIndex > 0) {
-    currentIndex -= 1;
-    renderStep();
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  if (currentIndex === 0) {
+    goBackToLanding();
+    return;
   }
+  currentIndex -= 1;
+  renderStep();
+  window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
+function goBackToLanding() {
+  document.querySelector('[data-screen="wizard"]').classList.remove("active");
+  document.querySelector('[data-screen="landing"]').classList.add("active");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
 
 nextBtn.addEventListener("click", () => {
   const stepName = stepOrder[currentIndex];
