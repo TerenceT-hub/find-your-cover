@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Find Your Cover — HongLeong Assurance Agent</title>
+<meta name="description" content="A simple, private way to understand your Medical, Life, Savings and Personal Accident protection." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ======================= NAV ======================= -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <span class="brand-mark">◆</span>
+      <span class="brand-text">Find Your Cover</span>
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 14.2A8.4 8.4 0 1 1 9.8 4a6.6 6.6 0 0 0 10.2 10.2z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="app">
+
+  <!-- ======================= LANDING ======================= -->
+  <section class="screen landing active" data-screen="landing">
+    <div class="landing-glow"></div>
+    <div class="container">
+
+      <p class="eyebrow">A HongLeong Assurance Agent Service</p>
+      <h1 class="hero-title">Protection that fits<br/>your actual life.</h1>
+      <p class="quote">“Insurance isn't something you buy for today.<br/>It's a promise you keep for the years you can't yet see.”</p>
+
+      <div class="hero-actions">
+        <button class="btn btn-primary" id="startQuoteBtn">Check My Coverage</button>
+        <button class="btn btn-ghost" id="startReviewBtn">I'm not sure what I have — Free Review</button>
+      </div>
+
+      <div class="disclosure-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3.2v5.3c0 4.6-3 8.9-7 10-4-1.1-7-5.4-7-10V6.2L12 3z"/><path d="M9 12l2 2 4-4"/></svg>
+        <span>This is a HongLeong Assurance product offering, presented to you by a licensed HongLeong Assurance agent.</span>
+      </div>
+
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-icon">＋</div>
+          <h3>Medical Card</h3>
+          <p>Hospital &amp; surgical cover, so treatment never waits on your bank balance.</p>
+        </div>
+        <div class="product-card">
+          <div class="product-icon">♥</div>
+          <h3>Life</h3>
+          <p>A safety net for the people who depend on your income.</p>
+        </div>
+        <div class="product-card">
+          <div class="product-icon">◐</div>
+          <h3>Savings</h3>
+          <p>Structured saving that grows toward a goal, on a timeline you set.</p>
+        </div>
+        <div class="product-card">
+          <div class="product-icon">⚡</div>
+          <h3>Personal Accident</h3>
+          <p>Cover for the unexpected — at work, on the road, anywhere.</p>
+        </div>
+      </div>
+
+      <div class="review-strip">
+        <div class="review-strip-text">
+          <h4>Already have a few policies and lost track?</h4>
+          <p>Ask for a free <strong>Policy Consolidation &amp; Review</strong> — I'll help you map out what you're currently covered for, spot gaps or overlaps, and explain it in plain language. No judgement if you don't remember the details.</p>
+        </div>
+        <button class="btn btn-secondary" id="reviewStripBtn">Request Free Review</button>
+      </div>
+
+      <div class="privacy-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+        <p><strong>Your peace of mind, guaranteed:</strong> We will never cold call you, and we will never share your details with anyone. Every conversation happens on WhatsApp, only when you're ready.</p>
+      </div>
+
+      <footer class="landing-footer">
+        <p>Presented by an independent HongLeong Assurance agent · Not affiliated with any other insurer's plans shown here</p>
+      </footer>
+    </div>
+  </section>
+
+  <!-- ======================= WIZARD SHELL ======================= -->
+  <section class="screen wizard" data-screen="wizard">
+    <div class="container container-narrow">
+
+      <div class="progress-wrap">
+        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+        <span class="progress-label" id="progressLabel">Step 1</span>
+      </div>
+
+      <!-- ---- Step: choose products ---- -->
+      <div class="step" data-step="products">
+        <p class="step-eyebrow">Let's start here</p>
+        <h2>Which would you like a quote on?</h2>
+        <p class="step-sub">Pick as many as apply. The next questions adjust to your choices.</p>
+
+        <div class="option-grid" id="productChoices">
+          <label class="option-card">
+            <input type="checkbox" name="interest" value="Medical Card" />
+            <span class="option-icon">＋</span>
+            <span class="option-label">Medical Card</span>
+          </label>
+          <label class="option-card">
+            <input type="checkbox" name="interest" value="Life" />
+            <span class="option-icon">♥</span>
+            <span class="option-label">Life</span>
+          </label>
+          <label class="option-card">
+            <input type="checkbox" name="interest" value="Savings" />
+            <span class="option-icon">◐</span>
+            <span class="option-label">Savings</span>
+          </label>
+          <label class="option-card">
+            <input type="checkbox" name="interest" value="Personal Accident" />
+            <span class="option-icon">⚡</span>
+            <span class="option-label">Personal Accident</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- ---- Step: policy review picker (alternate flow) ---- -->
+      <div class="step" data-step="reviewpicker">
+        <p class="step-eyebrow">Free Policy Review</p>
+        <h2>What would you like reviewed?</h2>
+        <p class="step-sub">No numbers needed here — just tell me what you'd like a second look at.</p>
+
+        <div class="option-grid" id="reviewChoices">
+          <label class="option-card">
+            <input type="checkbox" name="reviewInterest" value="Medical Card" />
+            <span class="option-icon">＋</span>
+            <span class="option-label">Medical Card</span>
+          </label>
+          <label class="option-card">
+            <input type="checkbox" name="reviewInterest" value="Life" />
+            <span class="option-icon">♥</span>
+            <span class="option-label">Life</span>
+          </label>
+          <label class="option-card">
+            <input type="checkbox" name="reviewInterest" value="Savings" />
+            <span class="option-icon">◐</span>
+            <span class="option-label">Savings</span>
+          </label>
+          <label class="option-card">
+            <input type="checkbox" name="reviewInterest" value="Personal Accident" />
+            <span class="option-icon">⚡</span>
+            <span class="option-label">Personal Accident</span>
+          </label>
+          <label class="option-card">
+            <input type="checkbox" name="reviewInterest" value="Not sure — review everything" />
+            <span class="option-icon">?</span>
+            <span class="option-label">Not sure — review everything</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- ---- Step: Medical Card detail ---- -->
+      <div class="step" data-step="medical">
+        <p class="step-eyebrow">Medical Card</p>
+        <h2>Do you currently have a Medical Card?</h2>
+
+        <div class="toggle-row" data-group="medicalExisting">
+          <button type="button" class="toggle-btn" data-value="Yes">Yes, I have one</button>
+          <button type="button" class="toggle-btn" data-value="No">No, not yet</button>
+        </div>
+
+        <div class="reveal" data-reveal="medical-yes">
+          <label class="field-label">How much coverage (annual limit) do you currently have?</label>
+          <input type="text" inputmode="decimal" class="field-input" id="medicalCoverage" placeholder="e.g. RM 1,000,000 annual limit" />
+        </div>
+
+        <div class="reveal" data-reveal="medical-no">
+          <label class="field-label">What's your monthly budget for this?</label>
+          <input type="text" inputmode="decimal" class="field-input" id="medicalBudget" placeholder="e.g. RM 150 / month" />
+          <label class="field-label">How much coverage are you hoping for?</label>
+          <input type="text" inputmode="decimal" class="field-input" id="medicalExpected" placeholder="e.g. RM 1,000,000 annual limit" />
+        </div>
+      </div>
+
+      <!-- ---- Step: Life detail ---- -->
+      <div class="step" data-step="life">
+        <p class="step-eyebrow">Life</p>
+        <h2>Do you currently have Life coverage?</h2>
+
+        <div class="toggle-row" data-group="lifeExisting">
+          <button type="button" class="toggle-btn" data-value="Yes">Yes, I have one</button>
+          <button type="button" class="toggle-btn" data-value="No">No, not yet</button>
+        </div>
+
+        <div class="reveal" data-reveal="life-yes">
+          <label class="field-label">How much is your current Life sum covered?</label>
+          <input type="text" inputmode="decimal" class="field-input" id="lifeCoverage" placeholder="e.g. RM 300,000" />
+        </div>
+
+        <div class="reveal" data-reveal="life-no">
+          <label class="field-label">What's your monthly budget for this?</label>
+          <input type="text" inputmode="decimal" class="field-input" id="lifeBudget" placeholder="e.g. RM 100 / month" />
+          <label class="field-label">How much coverage are you hoping for?</label>
+          <input type="text" inputmode="decimal" class="field-input" id="lifeExpected" placeholder="e.g. RM 500,000" />
+        </div>
+      </div>
+
+      <!-- ---- Step: Savings detail ---- -->
+      <div class="step" data-step="savings">
+        <p class="step-eyebrow">Savings</p>
+        <h2>Do you currently have a Savings plan?</h2>
+
+        <div class="toggle-row" data-group="savingsExisting">
+          <button type="button" class="toggle-btn" data-value="Yes">Yes, I have one</button>
+          <button type="button" class="toggle-btn" data-value="No">No, not yet</button>
+        </div>
+
+        <div class="reveal" data-reveal="savings-yes">
+          <label class="field-label">How much is currently covered / contributed?</label>
+          <input type="text" inputmode="decimal" class="field-input" id="savingsCoverage" placeholder="e.g. RM 500 / month plan" />
+        </div>
+
+        <div class="reveal" data-reveal="savings-no">
+          <label class="field-label">What's your budget for this?</label>
+          <input type="text" inputmode="decimal" class="field-input" id="savingsBudget" placeholder="e.g. RM 300 / month" />
+        </div>
+      </div>
+
+      <!-- ---- Step: PA detail ---- -->
+      <div class="step" data-step="pa">
+        <p class="step-eyebrow">Personal Accident</p>
+        <h2>Do you currently have Personal Accident cover?</h2>
+
+        <div class="toggle-row" data-group="paExisting">
+          <button type="button" class="toggle-btn" data-value="Yes">Yes, I have one</button>
+          <button type="button" class="toggle-btn" data-value="No">No, not yet</button>
+        </div>
+
+        <div class="reveal" data-reveal="pa-yes">
+          <label class="field-label">How much is currently covered?</label>
+          <input type="text" inputmode="decimal" class="field-input" id="paCoverage" placeholder="e.g. RM 200,000" />
+        </div>
+
+        <div class="reveal" data-reveal="pa-no">
+          <label class="field-label">What's your budget for this?</label>
+          <input type="text" inputmode="decimal" class="field-input" id="paBudget" placeholder="e.g. RM 30 / month" />
+          <label class="field-label">How much coverage are you hoping for?</label>
+          <input type="text" inputmode="decimal" class="field-input" id="paExpected" placeholder="e.g. RM 200,000" />
+        </div>
+      </div>
+
+      <!-- ---- Step: personal details ---- -->
+      <div class="step" data-step="personal">
+        <p class="step-eyebrow">Almost there</p>
+        <h2>A few details that shape your premium</h2>
+        <p class="step-sub">These four factors are what insurers actually use to price a plan — nothing more is asked.</p>
+
+        <label class="field-label">Full name</label>
+        <input type="text" class="field-input" id="fullName" placeholder="As per NRIC / passport" />
+
+        <label class="field-label">Date of birth <span class="hint">(affects premium)</span></label>
+        <input type="date" class="field-input" id="dob" />
+
+        <label class="field-label">Gender <span class="hint">(affects premium)</span></label>
+        <div class="toggle-row" data-group="gender">
+          <button type="button" class="toggle-btn" data-value="Male">Male</button>
+          <button type="button" class="toggle-btn" data-value="Female">Female</button>
+        </div>
+
+        <label class="field-label">Occupation <span class="hint">(affects premium)</span></label>
+        <input type="text" class="field-input" id="occupation" placeholder="e.g. Office admin, Rider, Engineer" />
+      </div>
+
+      <!-- ---- Step: privacy ---- -->
+      <div class="step" data-step="privacy">
+        <p class="step-eyebrow">Before we continue</p>
+        <h2>Your privacy, in plain terms</h2>
+
+        <div class="privacy-card">
+          <ul>
+            <li><strong>No cold calls.</strong> Your phone number is never used to call you.</li>
+            <li><strong>No sharing.</strong> Your details stay between you and your agent — never sold or passed to any third party.</li>
+            <li><strong>WhatsApp only.</strong> All follow-up happens on WhatsApp, at a time you choose, only after you tap "Send".</li>
+            <li><strong>You're in control.</strong> This form only prepares the conversation — nothing is bought or committed here.</li>
+          </ul>
+        </div>
+
+        <label class="consent-row">
+          <input type="checkbox" id="consentCheck" />
+          <span>I understand and I'm comfortable continuing to WhatsApp.</span>
+        </label>
+      </div>
+
+      <!-- ---- Step: review + submit ---- -->
+      <div class="step" data-step="review">
+        <p class="step-eyebrow">Last look</p>
+        <h2>Here's what I'll receive</h2>
+        <div class="summary-card" id="summaryCard"></div>
+        <p class="step-sub">Tapping "Send to WhatsApp" saves this to my records and opens WhatsApp with your details pre-filled — you press send.</p>
+      </div>
+
+      <!-- ---- Step: thank you ---- -->
+      <div class="step" data-step="done">
+        <div class="done-mark">✓</div>
+        <h2>Thank you.</h2>
+        <p class="step-sub">Opening WhatsApp for you now. If it doesn't open automatically, use the button below.</p>
+        <a class="btn btn-primary" id="waFallbackBtn" href="#" target="_blank" rel="noopener">Open WhatsApp</a>
+      </div>
+
+      <!-- ---- nav buttons ---- -->
+      <div class="step-nav">
+        <button class="btn btn-ghost" id="prevBtn">← Back</button>
+        <button class="btn btn-primary" id="nextBtn">Continue</button>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
