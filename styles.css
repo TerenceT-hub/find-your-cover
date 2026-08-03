@@ -5,9 +5,9 @@
   --bg-sunken: #ebebee;
   --text: #1d1d1f;
   --text-secondary: #6e6e73;
-  --accent: #9c1d2e;
+  --accent: #e2604a;
   --accent-text: #ffffff;
-  --accent-soft: rgba(156, 29, 46, 0.08);
+  --accent-soft: rgba(226, 96, 74, 0.08);
   --border: rgba(0, 0, 0, 0.08);
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
   --nav-bg: rgba(245, 245, 247, 0.72);
@@ -20,9 +20,9 @@
   --bg-sunken: #131314;
   --text: #f5f5f7;
   --text-secondary: #98989d;
-  --accent: #ff5b67;
+  --accent: #ff8069;
   --accent-text: #1d1d1f;
-  --accent-soft: rgba(255, 91, 103, 0.14);
+  --accent-soft: rgba(255, 128, 105, 0.14);
   --border: rgba(255, 255, 255, 0.12);
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   --nav-bg: rgba(0, 0, 0, 0.6);
@@ -74,8 +74,17 @@ body {
   justify-content: space-between;
 }
 
-.brand { display: flex; align-items: center; gap: 8px; font-weight: 600; letter-spacing: -0.01em; }
-.brand-mark { color: var(--accent); }
+.brand { display: flex; align-items: center; }
+.brand-logo-badge {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 5px 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+[data-theme="dark"] .brand-logo-badge { border: 1px solid rgba(255, 255, 255, 0.1); }
+.brand-logo-badge img { height: 22px; display: block; }
 
 .theme-toggle {
   width: 36px;
@@ -387,6 +396,13 @@ body {
   margin: 0 auto 20px;
 }
 [data-step="done"] { text-align: center; }
+.done-actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
 
 .step-nav { display: flex; justify-content: space-between; margin-top: 40px; }
 
