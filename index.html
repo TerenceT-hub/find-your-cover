@@ -36,7 +36,7 @@
       <p class="quote">“Insurance isn't something you buy for today.<br/>It's a promise you keep for the years you can't yet see.”</p>
 
       <div class="hero-actions">
-        <button class="btn btn-primary" id="startQuoteBtn">Check My Coverage</button>
+        <button class="btn btn-primary" id="startQuoteBtn">I Want to Know More</button>
         <button class="btn btn-ghost" id="startReviewBtn">I'm not sure what I have — Free Review</button>
       </div>
 
@@ -99,7 +99,7 @@
       <!-- ---- Step: choose products ---- -->
       <div class="step" data-step="products">
         <p class="step-eyebrow">Let's start here</p>
-        <h2>Which would you like a quote on?</h2>
+        <h2>Which product would you like to know more about?</h2>
         <p class="step-sub">Pick as many as apply. The next questions adjust to your choices.</p>
 
         <div class="option-grid" id="productChoices">
@@ -172,14 +172,12 @@
         </div>
 
         <div class="reveal" data-reveal="medical-yes">
-          <label class="field-label">How much coverage (annual limit) do you currently have?</label>
+          <label class="field-label">How much coverage do you have now?</label>
           <input type="text" inputmode="decimal" class="field-input" id="medicalCoverage" placeholder="e.g. RM 1,000,000 annual limit" />
         </div>
 
         <div class="reveal" data-reveal="medical-no">
-          <label class="field-label">What's your monthly budget for this?</label>
-          <input type="text" inputmode="decimal" class="field-input" id="medicalBudget" placeholder="e.g. RM 150 / month" />
-          <label class="field-label">How much coverage are you hoping for?</label>
+          <label class="field-label">How much would you like to cover?</label>
           <input type="text" inputmode="decimal" class="field-input" id="medicalExpected" placeholder="e.g. RM 1,000,000 annual limit" />
         </div>
       </div>
@@ -195,14 +193,12 @@
         </div>
 
         <div class="reveal" data-reveal="life-yes">
-          <label class="field-label">How much is your current Life sum covered?</label>
+          <label class="field-label">How much coverage do you have now?</label>
           <input type="text" inputmode="decimal" class="field-input" id="lifeCoverage" placeholder="e.g. RM 300,000" />
         </div>
 
         <div class="reveal" data-reveal="life-no">
-          <label class="field-label">What's your monthly budget for this?</label>
-          <input type="text" inputmode="decimal" class="field-input" id="lifeBudget" placeholder="e.g. RM 100 / month" />
-          <label class="field-label">How much coverage are you hoping for?</label>
+          <label class="field-label">How much would you like to cover?</label>
           <input type="text" inputmode="decimal" class="field-input" id="lifeExpected" placeholder="e.g. RM 500,000" />
         </div>
       </div>
@@ -223,8 +219,8 @@
         </div>
 
         <div class="reveal" data-reveal="savings-no">
-          <label class="field-label">What's your budget for this?</label>
-          <input type="text" inputmode="decimal" class="field-input" id="savingsBudget" placeholder="e.g. RM 300 / month" />
+          <label class="field-label">How much would you like to cover?</label>
+          <input type="text" inputmode="decimal" class="field-input" id="savingsExpected" placeholder="e.g. RM 300 / month plan" />
         </div>
       </div>
 
@@ -239,14 +235,12 @@
         </div>
 
         <div class="reveal" data-reveal="pa-yes">
-          <label class="field-label">How much is currently covered?</label>
+          <label class="field-label">How much coverage do you have now?</label>
           <input type="text" inputmode="decimal" class="field-input" id="paCoverage" placeholder="e.g. RM 200,000" />
         </div>
 
         <div class="reveal" data-reveal="pa-no">
-          <label class="field-label">What's your budget for this?</label>
-          <input type="text" inputmode="decimal" class="field-input" id="paBudget" placeholder="e.g. RM 30 / month" />
-          <label class="field-label">How much coverage are you hoping for?</label>
+          <label class="field-label">How much would you like to cover?</label>
           <input type="text" inputmode="decimal" class="field-input" id="paExpected" placeholder="e.g. RM 200,000" />
         </div>
       </div>
@@ -257,8 +251,8 @@
         <h2>A few details that shape your premium</h2>
         <p class="step-sub">These four factors are what insurers actually use to price a plan — nothing more is asked.</p>
 
-        <label class="field-label">Full name</label>
-        <input type="text" class="field-input" id="fullName" placeholder="As per NRIC / passport" />
+        <label class="field-label">Name <span class="hint">(any name you're comfortable with)</span></label>
+        <input type="text" class="field-input" id="fullName" placeholder="First name is fine" />
 
         <label class="field-label">Date of birth <span class="hint">(affects premium)</span></label>
         <input type="date" class="field-input" id="dob" />
@@ -271,6 +265,22 @@
 
         <label class="field-label">Occupation <span class="hint">(affects premium)</span></label>
         <input type="text" class="field-input" id="occupation" placeholder="e.g. Office admin, Rider, Engineer" />
+      </div>
+
+      <!-- ---- Step: budget allocation ---- -->
+      <div class="step" data-step="budget">
+        <p class="step-eyebrow">One last thing</p>
+        <h2>What's your budget allocation?</h2>
+        <p class="step-sub">A rough figure is fine — this just helps me shape a plan that fits, not lock you into anything.</p>
+
+        <label class="field-label">Amount</label>
+        <input type="text" inputmode="decimal" class="field-input" id="budgetAmount" placeholder="e.g. RM 250" />
+
+        <label class="field-label">Frequency</label>
+        <div class="toggle-row" data-group="budgetFrequency">
+          <button type="button" class="toggle-btn" data-value="Monthly">Monthly</button>
+          <button type="button" class="toggle-btn" data-value="Annual">Annual</button>
+        </div>
       </div>
 
       <!-- ---- Step: privacy ---- -->
@@ -306,7 +316,10 @@
         <div class="done-mark">✓</div>
         <h2>Thank you.</h2>
         <p class="step-sub">Opening WhatsApp for you now. If it doesn't open automatically, use the button below.</p>
-        <a class="btn btn-primary" id="waFallbackBtn" href="#" target="_blank" rel="noopener">Open WhatsApp</a>
+        <div class="done-actions">
+          <a class="btn btn-primary" id="waFallbackBtn" href="#" target="_blank" rel="noopener">Open WhatsApp</a>
+          <button class="btn btn-ghost" id="restartBtn" type="button">Submit Another Response</button>
+        </div>
       </div>
 
       <!-- ---- nav buttons ---- -->
