@@ -3,7 +3,7 @@
 ===================================================================== */
 const CONFIG = {
   // Paste your Google Apps Script Web App URL here (see README.md, Part 2)
-  GOOGLE_SHEET_ENDPOINT: "https://script.google.com/macros/s/AKfycbyT5qM9k4G6AsM9giVE9GZOEF8rB8mQfti3EG3y7HuFrTCuz90OzYMPbL52UFZ8iNLLUg/exec",
+  GOOGLE_SHEET_ENDPOINT: "https://script.google.com/macros/s/AKfycbwPQOhf6R_bp4TglDCNQJjXmDlHXztIJV-Hc3zvxgNMVi2mZ2rFkLs8j5UD7I6vRWuPWA/exec",
 
   // Your WhatsApp number in international format, no + no spaces, e.g. 60123456789
   WHATSAPP_NUMBER: "60126739328",
